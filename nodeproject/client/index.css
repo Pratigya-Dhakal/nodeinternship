@@ -1,0 +1,32 @@
+*{
+    margin: 0;
+}
+.container{
+    background-color: aliceblue;
+}
+.card{
+    width: 30rem;
+    margin: 20px;
+    padding: 20px;
+    align-content: center;
+    align-items: center;
+}
+label{
+    display: inline;
+    padding: 5px;
+   
+    
+}
+label,input,button{
+    margin: 5px;
+}
+.btn{
+
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    border: 1px solid  #0000ff;
+    border-radius: 10px;
+width: fit-content;
+height: 35px;
+
+}
