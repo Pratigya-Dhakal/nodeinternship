@@ -1,32 +1,38 @@
 *{
     margin: 0;
 }
+main{ margin: 50px auto;
+    width: 50%;
+}
 .container{
     background-color: aliceblue;
 }
 .card{
+    text-align: center;
     width: 30rem;
-    margin: 20px;
     padding: 20px;
     align-content: center;
     align-items: center;
 }
 label{
     display: inline;
-    padding: 5px;
-   
-    
+    padding: 5px; 
 }
 label,input,button{
     margin: 5px;
 }
 .btn{
 
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(145, 157, 248);
     color: rgb(0, 0, 0);
     border: 1px solid  #0000ff;
     border-radius: 10px;
-width: fit-content;
-height: 35px;
-
+    
 }
+table, th, td {
+    margin: 5px;
+    padding: 5px; 
+
+    border: 1px solid black;
+    border-collapse: collapse;
+  }
