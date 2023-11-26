@@ -105,42 +105,14 @@ button {
     color: #fff;
 }
 
-.deleteButton {
+.deleteBtn {
     background-color: #f44336;
-    color: #fff;
+    color: #ffffff;
 }
 
-.editButton {
-    background-color: rgb(255, 135, 7);
-    color: #dcdcdc;
+.editBtn {
+    background-color: rgb(79, 166, 198);
+    color: #ffffff;
 }
 
-#editPopup {
-    display: none;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #fff;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    z-index: 2;
-}
 
-#editPopup input {
-    width: 100%;
-    margin-bottom: 10px;
-}
-
-#editPopup button {
-    background-color: #4caf50;
-    color: #fff;
-    border: none;
-    padding: 8px 16px;
-    border-radius: 3px;
-    margin-right: 10px;
-}
-
-#editPopup button:hover {
-    background-color: #45a049;
-}

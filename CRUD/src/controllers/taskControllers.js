@@ -23,3 +23,20 @@ export function createTask(req, res) {
         res.json({ id: result.insertId, task, completed: false });
     });
 }
+
+export function updateTask(req, res) {
+    const { id } = req.params;
+    const { task, completed } = req.body;
+    connection.query('UPDATE todos SET task = ?, completed = ? WHERE id = ?', [task, completed, id], (err) => {
+        if (err) throw err;
+        res.sendStatus(200);
+    });
+}
+
+export function deleteTask(req, res) {
+    const { id } = req.params;
+    connection.query('DELETE FROM todos WHERE id = ?', [id], (err) => {
+        if (err) throw err;
+        res.sendStatus(200);
+    });
+}
