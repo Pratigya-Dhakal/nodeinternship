@@ -1,0 +1,3 @@
+Hello i am creating a read write file using filesystem
+ Using appendFileSync for ading data wihtout deleting
+ 
