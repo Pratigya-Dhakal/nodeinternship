@@ -1,0 +1,40 @@
+<!-- registration.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="../assets/script/script.js"></script>
+    <title>User Registration</title>
+</head>
+<body>
+    <%- include('index.ejs') %>
+    <div class="wrapper">
+        <h3 class="hero-text">REGISTER</h3>
+        <form  id="registrationForm" action="/registration" method="POST" class="form" >
+            <div class="taskInput">
+                <input type="text" id="name" name="name" placeholder="Full Name" >
+            </div>
+            <div class="taskInput">
+                <input type="text" id="email" name="email" placeholder="Email" >
+            </div>
+            <div class="taskInput">
+                <input type="date" id="dob" name="dob" placeholder="Birth Date" >
+            </div>
+            <div class="taskInput">
+                <input type="password" id="password" name="password" placeholder="Password" >
+            </div>
+            <div class="taskInput">
+                <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password" >
+            </div>
+            <button type="submit" class="btn">Register</button>
+
+            <p>Already Have an Account ?<a href="/login" class="loginBtn">Login</a></p>
+        </form>
+    </div>
+</body>
+</html>

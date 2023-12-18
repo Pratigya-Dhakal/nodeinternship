@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> User Login </title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <%- include('index.ejs') %>
+
+    <div class="wrapper">
+        <h3 class="hero-text">Log In</h3>
+        <form id="loginForm" action="/login" method="POST" class="form">
+            <div class="taskInput">
+                <input type="text" id="email" name="email"  placeholder="Email" required > 
+            </div>
+            
+            <div class="taskInput">
+                <input type="password" id="password" name="password" placeholder="Password" required >
+
+            </div>
+
+            <button type="submit" class= "btn">Login</button>
+            
+            <p>Does not have an Account ?<a href="/registration" class="registerBtn">Register</a></p>
+        </form>
+    </div>
+</body>
+</html>
