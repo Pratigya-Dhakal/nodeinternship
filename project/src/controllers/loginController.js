@@ -2,6 +2,7 @@ const bcrypt = require('bcrypt');
 const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
 const { generateToken } = require('../utils/jwt');
+
 const loginUser = async (req, res) => {
     try {
         const { email, password } = req.body;
@@ -9,20 +10,39 @@ const loginUser = async (req, res) => {
         const user = await prisma.user.findUnique({
             where: {
                 email: email,
-            },  
+            },
+            select: {
+                id: true,
+                name: true,
+                dob: true,
+                email: true,
+            },
         });
 
         if (!user) {
             return res.status(401).json({ error: 'Invalid email' });
         }
 
-        const passwordMatch = await bcrypt.compare(password, user.password);
+        const storedUser = await prisma.user.findUnique({
+            where: {
+                email: email,
+            },
+            select: {
+                password: true,
+            },
+        });
+
+        if (!storedUser || !storedUser.password) {
+            return res.status(500).json({ error: 'User has no password' });
+        }
+
+        const passwordMatch = await bcrypt.compare(password, storedUser.password);
 
         if (!passwordMatch) {
             return res.status(401).json({ error: 'Invalid password' });
         }
+
         const token = generateToken(user.id);
-        // res.redirect('/profile');
         res.status(200).json({ message: 'Login successful', user, token });
     } catch (error) {
         console.error('Error during login:', error);
