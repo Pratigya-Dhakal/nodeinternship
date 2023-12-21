@@ -33,6 +33,12 @@ const registerUser = async (req, res) => {
                 dob: userDob,
                 password: hashedPassword,
             },
+            select: {
+                id: true,
+                name: true,
+                dob : true,
+                email :true,
+            }
         });
         const token = generateToken(user.id);
         // res.redirect('/profile');
