@@ -2,7 +2,7 @@ const bcrypt = require('bcrypt');
 const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
 const { generateToken } = require('../utils/jwt');
-
+const { sendVerificationEmail } = require('../middleware/emailService');
 const registerUser = async (req, res) => {
     try {
         const { name, email, dob, password, confirmPassword } = req.body;
@@ -42,6 +42,8 @@ const registerUser = async (req, res) => {
         });
         const token = generateToken(user.id);
         // res.redirect('/profile');
+        sendVerificationEmail(email, generateToken(user.id));
+
         res.json({ message: 'Registration successful', user,token });
     } catch (error) {
         if (error.code === 'P2002' && error.meta?.target?.includes('email')) {

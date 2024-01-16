@@ -33,7 +33,7 @@ const loginUser = async (req, res) => {
         });
 
         if (!storedUser || !storedUser.password) {
-            return res.status(500).json({ error: 'User has no password' });
+            return res.status(500).json({ error: 'Invalid Credential' });
         }
 
         const passwordMatch = await bcrypt.compare(password, storedUser.password);
